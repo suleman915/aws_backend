@@ -3,7 +3,11 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://54.242.76.169:5173',  
+    methods: ['GET', 'POST']
+}));
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -23,4 +27,3 @@ app.post('/api/save', (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
-
